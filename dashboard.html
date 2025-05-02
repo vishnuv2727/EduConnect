@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Study Materials</h1>
+        <p>Welcome! Choose what you need:</p>
+
+        <button onclick="location.href='notes.html'">Notes</button>
+        <button onclick="location.href='pyqs.html'">Previous Year Questions</button>
+        <button onclick="location.href='imp_questions.html'">Important Questions</button>
+
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            window.location.href = "index.html";
+        }
+    </script>
+
+<div class="topbar">
+    <span id="profile-name"></span>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let userData = JSON.parse(localStorage.getItem("loggedInUser"));
+        if (userData) {
+            document.getElementById("profile-name").innerText = "Welcome, " + userData.name; // Show full name
+        } else {
+            window.location.href = "index.html"; // Redirect to login if no user is found
+        }
+    });
+</script>
+
+
+
+</body>
+</html>

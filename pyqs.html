@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Previous Year Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="dashboard.html">Back to Dashboard</a>
+    </div>
+
+    <div class="main-content">
+        <h1>Previous Year Questions</h1>
+        <ul id="pyqs-list"></ul>
+    </div>
+
+    <script>
+        const pyqsList = [
+            { title: "Math PYQs", link: "https://drive.google.com/your_link_here" },
+            { title: "Physics PYQs", link: "https://drive.google.com/your_link_here" }
+        ];
+
+        const listContainer = document.getElementById("pyqs-list");
+        pyqsList.forEach(pyq => {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `<a href="${pyq.link}" target="_blank">${pyq.title}</a>`;
+            listContainer.appendChild(listItem);
+        });
+    </script>
+
+<div class="topbar">
+    <span id="profile-name"></span>
+</div>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let userData = JSON.parse(localStorage.getItem("loggedInUser"));
+        if (userData) {
+            document.getElementById("profile-name").innerText = "Welcome, " + userData.name; // Show full name
+        } else {
+            window.location.href = "index.html"; // Redirect to login if no user is found
+        }
+    });
+</script>
+
+
+</body>
+</html>

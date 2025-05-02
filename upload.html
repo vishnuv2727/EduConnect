@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REVA University, Bengaluru - Upload Study Material</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="pyqs.html">Previous Year Questions</a></li>
+            <li><a href="imp_questions.html">Important Questions</a></li>
+            <li><a href="upload.html">Upload Study Material</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Upload Study Material - REVA University, Bengaluru</h1>
+        <p>Upload your study materials using Google Drive and share the link.</p>
+        <form>
+            <label for="subject">Select Subject:</label>
+            <select id="subject">
+                <option value="esiot">ESIOT</option>
+                <option value="uhv">UHV</option>
+                <option value="ic">IC</option>
+                <option value="daa">DAA</option>
+                <option value="dbms">DBMS</option>
+                <option value="labs">Labs</option>
+            </select>
+
+            <label for="unit">Unit (if applicable):</label>
+            <select id="unit">
+                <option value="1">Unit 1</option>
+                <option value="2">Unit 2</option>
+                <option value="3">Unit 3</option>
+                <option value="4">Unit 4</option>
+            </select>
+
+            <label for="drive-link">Google Drive Link:</label>
+            <input type="text" id="drive-link" placeholder="Paste your Google Drive link here" required>
+
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>

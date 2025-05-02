@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Important Questions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="dashboard.html">Back to Dashboard</a>
+    </div>
+
+    <div class="main-content">
+        <h1>Important Questions</h1>
+        <ul id="imp-questions-list"></ul>
+    </div>
+
+    <script>
+        const impQuestionsList = [
+            { title: "Math Important Questions", link: "https://drive.google.com/your_link_here" },
+            { title: "Physics Important Questions", link: "https://drive.google.com/your_link_here" }
+        ];
+
+        const listContainer = document.getElementById("imp-questions-list");
+        impQuestionsList.forEach(question => {
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `<a href="${question.link}" target="_blank">${question.title}</a>`;
+            listContainer.appendChild(listItem);
+        });
+    </script>
+
+<div class="topbar">
+    <span id="profile-name"></span>
+</div>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let userData = JSON.parse(localStorage.getItem("loggedInUser"));
+        if (userData) {
+            document.getElementById("profile-name").innerText = "Welcome, " + userData.name; // Show full name
+        } else {
+            window.location.href = "index.html"; // Redirect to login if no user is found
+        }
+    });
+</script>
+
+</body>
+</html>

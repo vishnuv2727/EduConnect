@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes - College Resources</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            height: 100vh;
+            padding: 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            border-bottom: 1px solid #34495e;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Subjects</h2>
+        <ul>
+            <li><a href="#" onclick="showUnits('esiot')">ESIOT</a></li>
+            <li><a href="#" onclick="showUnits('uhv')">UHV</a></li>
+            <li><a href="#" onclick="showUnits('ic')">IC</a></li>
+            <li><a href="#" onclick="showUnits('daa')">DAA</a></li>
+            <li><a href="#" onclick="showUnits('dbms')">DBMS</a></li>
+            <li><a href="#" onclick="showUnits('labs')">Labs</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <h1>Notes</h1>
+        <div id="units-container">
+            <h2>Select a subject to view units</h2>
+        </div>
+    </div>
+
+    <script>
+        const subjectUnits = {
+            esiot: [
+                { name: "Unit 1", link: "" },
+                { name: "Unit 2", link: "" },
+                { name: "Unit 3", link: "" },
+                { name: "Unit 4", link: "" }
+            ],
+            uhv: [
+                { name: "Unit 1", link: "" },
+                { name: "Unit 2", link: "" },
+                { name: "Unit 3", link: "" },
+                { name: "Unit 4", link: "" }
+            ],
+            ic: [
+                { name: "Unit 1", link: "" },
+                { name: "Unit 2", link: "" },
+                { name: "Unit 3", link: "" },
+                { name: "Unit 4", link: "" }
+            ],
+            daa: [
+                { name: "Unit 1", link: "https://drive.google.com/file/d/1kU6-cVRo2sr2m4liPsUjX9fRFYcYDJRv/preview" }, 
+                { name: "Unit 2", link: "" },
+                { name: "Unit 3", link: "" },
+                { name: "Unit 4", link: "" }
+            ],
+            dbms: [
+                { name: "Unit 1", link: "" },
+                { name: "Unit 2", link: "" },
+                { name: "Unit 3", link: "" },
+                { name: "Unit 4", link: "" }
+            ],
+            labs: [
+                { name: "Lab 1", link: "" },
+                { name: "Lab 2", link: "" },
+                { name: "Lab 3", link: "" }
+            ]
+        };
+
+        function showUnits(subject) {
+            let container = document.getElementById("units-container");
+            container.innerHTML = `<h2>${subject.toUpperCase()} - Units</h2><ul id="unit-list"></ul>`;
+
+            let unitList = document.getElementById("unit-list");
+            subjectUnits[subject].forEach(unit => {
+                let listItem = document.createElement("li");
+                if (unit.link) {
+                    listItem.innerHTML = `
+                        <h3>${unit.name}</h3>
+                        <iframe src="${unit.link}" width="600" height="400" style="border: none;"></iframe>
+                    `;
+                } else {
+                    listItem.innerText = `${unit.name} (Link Not Available)`;
+                }
+                unitList.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>
